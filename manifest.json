@@ -1,0 +1,435 @@
+{
+  "id": "holidays",
+  "name": "Holidays",
+  "version": "1.0.0",
+  "description": "A simple list of holidays, with several standard ones preloaded.",
+  "author": "Adam Selby",
+  "repository": "",
+  "documentation": "README.md",
+  "icon": "party-popper",
+  "category": "utility",
+  "supports_triggers": true,
+  "min_refresh_seconds": 60,
+  "settings_schema": {
+    "type": "object",
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "title": "Enabled",
+        "default": false
+      },
+      "holidays": {
+        "type": "array",
+        "title": "Holidays",
+        "description": "Preloaded with fun US holidays; edit, delete or add your own. Date rules: 12-25 · 4th thu nov · last mon may · easter · easter-47 · 4th thu nov+1",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "title": "Name"
+            },
+            "date": {
+              "type": "string",
+              "title": "Date Rule",
+              "description": "12-25, 4th thu nov, last mon may, easter, easter-47"
+            },
+            "message": {
+              "type": "string",
+              "title": "Message",
+              "description": "Optional. Defaults to HAPPY <NAME>!  Use | for a line break."
+            },
+            "colors": {
+              "type": "string",
+              "title": "Colors",
+              "description": "Optional confetti colors, comma-separated: red, orange, yellow, green, blue, violet, white"
+            }
+          },
+          "required": [
+            "name",
+            "date"
+          ]
+        },
+        "default": [
+          {
+            "name": "New Year's Day",
+            "date": "01-01",
+            "message": "HAPPY NEW YEAR!",
+            "colors": "yellow, white"
+          },
+          {
+            "name": "Valentine's Day",
+            "date": "02-14",
+            "message": "HAPPY VALENTINE'S DAY!",
+            "colors": "red, violet, white"
+          },
+          {
+            "name": "Leap Day",
+            "date": "02-29",
+            "message": "HAPPY LEAP DAY!",
+            "colors": "green, blue"
+          },
+          {
+            "name": "Mardi Gras",
+            "date": "easter-47",
+            "message": "HAPPY MARDI GRAS!",
+            "colors": "violet, green, yellow"
+          },
+          {
+            "name": "St. Patrick's Day",
+            "date": "03-17",
+            "message": "HAPPY ST. PATRICK'S DAY!",
+            "colors": "green, white"
+          },
+          {
+            "name": "April Fools' Day",
+            "date": "04-01",
+            "message": "HAPPY APRIL FOOLS' DAY!",
+            "colors": ""
+          },
+          {
+            "name": "Easter",
+            "date": "easter",
+            "message": "HAPPY EASTER!",
+            "colors": "violet, yellow, green, blue"
+          },
+          {
+            "name": "Earth Day",
+            "date": "04-22",
+            "message": "HAPPY EARTH DAY!",
+            "colors": "green, blue"
+          },
+          {
+            "name": "May the 4th",
+            "date": "05-04",
+            "message": "MAY THE 4TH BE WITH YOU",
+            "colors": "blue, green, red"
+          },
+          {
+            "name": "Cinco de Mayo",
+            "date": "05-05",
+            "message": "HAPPY CINCO DE MAYO!",
+            "colors": "green, white, red"
+          },
+          {
+            "name": "Mother's Day",
+            "date": "2nd sun may",
+            "message": "HAPPY MOTHER'S DAY!",
+            "colors": "violet, red, white"
+          },
+          {
+            "name": "Father's Day",
+            "date": "3rd sun jun",
+            "message": "HAPPY FATHER'S DAY!",
+            "colors": "blue, green"
+          },
+          {
+            "name": "Juneteenth",
+            "date": "06-19",
+            "message": "HAPPY JUNETEENTH!",
+            "colors": "red, green, yellow"
+          },
+          {
+            "name": "Independence Day",
+            "date": "07-04",
+            "message": "HAPPY 4TH OF JULY!",
+            "colors": "red, white, blue"
+          },
+          {
+            "name": "Ice Cream Day",
+            "date": "3rd sun jul",
+            "message": "HAPPY NATIONAL ICE CREAM DAY!",
+            "colors": "white, violet, yellow"
+          },
+          {
+            "name": "Dog Day",
+            "date": "08-26",
+            "message": "HAPPY NATIONAL DOG DAY!",
+            "colors": "orange, yellow"
+          },
+          {
+            "name": "Labor Day",
+            "date": "1st mon sep",
+            "message": "HAPPY LABOR DAY!",
+            "colors": "red, white, blue"
+          },
+          {
+            "name": "Coffee Day",
+            "date": "09-29",
+            "message": "HAPPY NATIONAL COFFEE DAY!",
+            "colors": "orange, white"
+          },
+          {
+            "name": "Cat Day",
+            "date": "10-29",
+            "message": "HAPPY NATIONAL CAT DAY!",
+            "colors": "orange, violet"
+          },
+          {
+            "name": "Halloween",
+            "date": "10-31",
+            "message": "HAPPY HALLOWEEN!",
+            "colors": "orange, violet, green"
+          },
+          {
+            "name": "Thanksgiving",
+            "date": "4th thu nov",
+            "message": "HAPPY THANKSGIVING!",
+            "colors": "orange, red, yellow"
+          },
+          {
+            "name": "Christmas Eve",
+            "date": "12-24",
+            "message": "MERRY CHRISTMAS EVE!",
+            "colors": "red, green, white"
+          },
+          {
+            "name": "Christmas",
+            "date": "12-25",
+            "message": "MERRY CHRISTMAS!",
+            "colors": "red, green, white"
+          },
+          {
+            "name": "New Year's Eve",
+            "date": "12-31",
+            "message": "HAPPY NEW YEAR'S EVE!",
+            "colors": "yellow, white, violet"
+          }
+        ]
+      },
+      "timezone": {
+        "type": "string",
+        "title": "Timezone",
+        "description": "Decides when \"today\" starts and ends.",
+        "default": "America/Chicago",
+        "ui:widget": "timezone"
+      },
+      "lookahead_days": {
+        "type": "integer",
+        "title": "Upcoming Window (days)",
+        "description": "How far ahead the upcoming list looks.",
+        "default": 30,
+        "minimum": 1,
+        "maximum": 366
+      },
+      "announce": {
+        "type": "boolean",
+        "title": "Take Over the Board",
+        "description": "Interrupt your normal pages to show the holiday, then hand the board back.",
+        "default": false
+      },
+      "announce_mode": {
+        "type": "string",
+        "title": "Takeover Style",
+        "description": "Once a day for a set length, or the first few minutes of every hour.",
+        "enum": [
+          "daily",
+          "hourly"
+        ],
+        "enumNames": [
+          "Once a day",
+          "Start of every hour"
+        ],
+        "default": "daily"
+      },
+      "announce_hour": {
+        "type": "integer",
+        "title": "Start Hour",
+        "description": "0-23, local time. Once a day: when it starts. Every hour: the first hour it runs.",
+        "default": 8,
+        "minimum": 0,
+        "maximum": 23
+      },
+      "announce_end_hour": {
+        "type": "integer",
+        "title": "End Hour (every-hour style)",
+        "description": "0-24. The takeover doesn't start in this hour or later.",
+        "default": 22,
+        "minimum": 1,
+        "maximum": 24
+      },
+      "announce_minutes": {
+        "type": "integer",
+        "title": "Takeover Length (minutes)",
+        "description": "Once a day: up to 1440. Every hour: capped at 60.",
+        "default": 30,
+        "minimum": 1,
+        "maximum": 1440
+      },
+      "takeover_priority": {
+        "type": "integer",
+        "title": "Takeover Priority",
+        "description": "When two takeovers overlap, the higher number wins.",
+        "default": 40,
+        "minimum": 1,
+        "maximum": 99
+      },
+      "refresh_seconds": {
+        "type": "integer",
+        "title": "Refresh Interval (seconds)",
+        "description": "How often to recompute (and reshuffle confetti). The date rolls over within this long of midnight.",
+        "default": 300,
+        "minimum": 60,
+        "maximum": 3600
+      }
+    }
+  },
+  "variables": {
+    "groups": {
+      "today": {
+        "label": "Today"
+      },
+      "next": {
+        "label": "Next Holiday"
+      }
+    },
+    "simple": {
+      "is_holiday": {
+        "description": "\"true\" if today is a holiday",
+        "group": "today",
+        "max_length": 5,
+        "example": "true"
+      },
+      "name": {
+        "description": "Today's holiday",
+        "group": "today",
+        "max_length": 22,
+        "example": "HALLOWEEN"
+      },
+      "names": {
+        "description": "All of today's holidays, joined with &",
+        "group": "today",
+        "max_length": 44,
+        "example": "HALLOWEEN"
+      },
+      "message": {
+        "description": "Today's message",
+        "group": "today",
+        "max_length": 44,
+        "example": "HAPPY HALLOWEEN!"
+      },
+      "count": {
+        "description": "Holidays today",
+        "group": "today",
+        "max_length": 2,
+        "example": "1",
+        "type": "number"
+      },
+      "confetti": {
+        "description": "22 random color tiles (themed when colors are set), reshuffled every refresh. LEFT(x.confetti, n * 4) gives n tiles.",
+        "group": "today",
+        "max_length": 22,
+        "example": "{63}{64}{65}"
+      },
+      "next_name": {
+        "description": "Next holiday after today",
+        "group": "next",
+        "max_length": 22,
+        "example": "THANKSGIVING"
+      },
+      "next_date": {
+        "description": "e.g. NOV 26",
+        "group": "next",
+        "max_length": 6,
+        "example": "NOV 26"
+      },
+      "next_days": {
+        "description": "Days until the next holiday",
+        "group": "next",
+        "max_length": 3,
+        "example": "7",
+        "type": "number"
+      },
+      "next_formatted": {
+        "description": "e.g. THANKSGIVING IN 7 DAYS",
+        "group": "next",
+        "max_length": 44,
+        "example": "THANKSGIVING IN 7 DAYS"
+      }
+    },
+    "arrays": {
+      "today": {
+        "label_field": "name",
+        "item_fields": [
+          "name",
+          "message"
+        ]
+      },
+      "upcoming": {
+        "label_field": "name",
+        "item_fields": [
+          "name",
+          "date",
+          "days"
+        ]
+      }
+    }
+  },
+  "max_lengths": {
+    "today.*.name": 22,
+    "today.*.message": 44,
+    "upcoming.*.name": 22,
+    "upcoming.*.date": 6,
+    "upcoming.*.days": 3
+  },
+  "demo": {
+    "name": "Holidays Demo",
+    "device_type": "flagship",
+    "template": [
+      "",
+      "{{holidays.message}}",
+      "",
+      "{{holidays.next_formatted}}",
+      "",
+      ""
+    ],
+    "line_metadata": [
+      {
+        "alignment": "center",
+        "wrap": false
+      },
+      {
+        "alignment": "center",
+        "wrap": false
+      },
+      {
+        "alignment": "center",
+        "wrap": false
+      },
+      {
+        "alignment": "center",
+        "wrap": false
+      },
+      {
+        "alignment": "center",
+        "wrap": false
+      },
+      {
+        "alignment": "center",
+        "wrap": false
+      }
+    ]
+  },
+  "teaser": "HAPPY HALLOWEEN",
+  "previews": [
+    {
+      "device_type": "flagship",
+      "rows": [
+        "{64}{68}{66}{64}{68}{66}{64}{68}{66}{64}{68}{66}{64}{68}{66}{64}{68}{66}{64}{68}{66}{64}",
+        "",
+        "   HAPPY HALLOWEEN!",
+        "",
+        "",
+        "{68}{64}{66}{68}{64}{66}{68}{64}{66}{68}{64}{66}{68}{64}{66}{68}{64}{66}{68}{64}{66}{68}"
+      ]
+    },
+    {
+      "device_type": "note",
+      "rows": [
+        "{64}{68}{66}{64}{68}{66}{64}{68}{66}{64}{68}{66}{64}{68}{66}",
+        "     HAPPY",
+        "   HALLOWEEN!"
+      ]
+    }
+  ]
+}
