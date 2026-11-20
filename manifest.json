@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "A simple list of holidays, with several standard ones preloaded.",
   "author": "Adam Selby",
-  "repository": "",
+  "repository": "https://github.com/adamselby/fiestaboard-plugin--holidays",
   "documentation": "README.md",
   "icon": "party-popper",
   "category": "utility",
@@ -21,7 +21,7 @@
       "holidays": {
         "type": "array",
         "title": "Holidays",
-        "description": "Preloaded with fun US holidays; edit, delete or add your own. Date rules: 12-25 · 4th thu nov · last mon may · easter · easter-47 · 4th thu nov+1",
+        "description": "Preloaded with fun US holidays; edit, delete or add your own. Date rules: 12-25 \u00b7 4th thu nov \u00b7 last mon may \u00b7 easter \u00b7 easter-47 \u00b7 4th thu nov+1",
         "items": {
           "type": "object",
           "properties": {
