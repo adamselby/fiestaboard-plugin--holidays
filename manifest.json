@@ -1,7 +1,7 @@
 {
   "id": "holidays",
   "name": "Holidays",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple list of holidays, with several standard ones preloaded.",
   "author": "Adam Selby",
   "repository": "https://github.com/adamselby/fiestaboard-plugin--holidays",

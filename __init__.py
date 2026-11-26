@@ -485,7 +485,8 @@ class HolidaysPlugin(Takeover, PluginBase):
     def _format_display(self, data: dict[str, Any]) -> list[str]:
         width, height = self._size()
         if data.get("is_holiday") == "true":
-            return celebration_lines(data["message"], width, height, getattr(self, "_palette", None))
+            label = data["name"] + "!"
+            return celebration_lines(label, width, height, getattr(self, "_palette", None))
         when = days_phrase(int(data["next_days"])) if data.get("next_days") else ""
         rows = ["NEXT HOLIDAY", "", data.get("next_name", ""), data.get("next_date", ""), when, ""]
         if height <= 3:
